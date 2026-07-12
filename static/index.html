@@ -3,9 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sri Velavan Computers | Best Computer Hardware & Service in Tamil Nadu</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Styles -->
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(13, 110, 253, 0.85), rgba(30, 41, 59, 0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+        }
+        .service-card, .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover, .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            color: white;
+        }
+    </style>
 </head>
-<body>
-    Compu Ins Welcome You
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#"><i class="bi bi-cpu-fill me-2"></i>Sri Velavan Computers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="tel:+919842212345" class="btn btn-primary btn-sm"><i class="bi bi-telephone-fill me-1"></i> Call Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section text-center">
+        <div class="container">
+            <span class="badge bg-primary mb-3 px-3 py-2 text-uppercase fs-6 tracking-wide">Tamil Nadu's Trusted Tech Destination</span>
+            <h1 class="display-3 fw-bold mb-3">Next-Gen Hardware & Expert Computer Services</h1>
+            <p class="lead mx-auto mb-4 w-75">From custom high-performance gaming rigs and enterprise servers to chip-level laptop repairs, we deliver unmatched quality across Tamil Nadu.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#products" class="btn btn-primary btn-lg px-4">Explore Products</a>
+                <a href="#services" class="btn btn-outline-light btn-lg px-4">Book a Repair</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="bg-primary text-white py-4">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-3 mb-md-0">
+                    <h3 class="fw-bold mb-0">18+ Years</h3>
+                    <small>Industry Excellence</small>
+                </div>
+                <div class="col-md-3 col-6 mb-3 mb-md-0">
+                    <h3 class="fw-bold mb-0">50,000+</h3>
+                    <small>Happy Customers</small>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h3 class="fw-bold mb-0">100%</h3>
+                    <small>Genuine Hardware</small>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h3 class="fw-bold mb-0">Expert</h3>
+                    <small>Chip-Level Engineers</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Computer Repair Shop" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h6 class="text-primary fw-bold text-uppercase">About Sri Velavan Computers</h6>
+                    <h2 class="fw-bold mb-4">Powering Tamil Nadu’s Digital & Computing Needs Since 2008</h2>
+                    <p class="text-muted mb-3">Based in the heart of Tamil Nadu, Sri Velavan Computers has grown into a renowned landmark for all computer hardware components, peripherals, and diagnostic repair solutions.</p>
+                    <p class="text-muted mb-4">We deal directly with tier-1 manufacturers, ensuring our customers get authentic processors, motherboards, RAM, storage, and accessories at transparent local pricing backed by reliable warranty and expert technical support.</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                                <span class="fw-semibold">Authorized Component Dealers</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                                <span class="fw-semibold">Advanced Diagnostic Lab</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">What We Do</h6>
+                <h2 class="fw-bold">Professional Hardware & Software Services</h2>
+                <p class="text-muted">Fast turnaround times and guaranteed workmanship by certified technicians.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm p-4 rounded-4">
+                        <div class="card-body">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 d-inline-block mb-3 fs-3">
+                                <i class="bi bi-motherboard"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Chip-Level Motherboard Repair</h4>
+                            <p class="text-muted">Advanced soldering, BGA reballing, and precise power-circuit fixes for desktop and laptop motherboards.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm p-4 rounded-4">
+                        <div class="card-body">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 d-inline-block mb-3 fs-3">
+                                <i class="bi bi-controller"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Custom Gaming PC Assembly</h4>
+                            <p class="text-muted">Tailor-made enthusiast rigs with optimized cooling loops, cable management, and benchmark testing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm p-4 rounded-4">
+                        <div class="card-body">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 d-inline-block mb-3 fs-3">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Laptop Screen & Battery Swap</h4>
+                            <p class="text-muted">Original replacement screens, keyboard changes, and high-capacity battery upgrades with warranty.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm p-4 rounded-4">
+                        <div class="card-body">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 d-inline-block mb-3 fs-3">
+                                <i class="bi bi-hdd-rack"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Data Recovery Services</h4>
+                            <p class="text-muted">Secure retrieval of lost documents, photos, and databases from failed hard drives and corrupted SSDs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm p-4 rounded-4">
+                        <div class="card-body">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 d-inline-block mb-3 fs-3">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Virus Removal & OS Tuneup</h4>
+                            <p class="text-muted">Deep malware cleanup, genuine OS installations, and boot-speed optimization for peak performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm p-4 rounded-4">
+                        <div class="card-body">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 d-inline-block mb-3 fs-3">
+                                <i class="bi bi-building-gear"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Annual Maintenance (AMC)</h4>
+                            <p class="text-muted">Comprehensive corporate and academic campus IT infrastructure maintenance and quick on-site support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products / Hardware Catalog -->
+    <section id="products" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Top Hardware Sales</h6>
+                <h2 class="fw-bold">Featured Computer Instruments & Parts</h2>
+                <p class="text-muted">High-performance components stocked and ready for immediate pickup or delivery.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Processors">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="fw-bold">Latest Processors</h5>
+                            <p class="text-muted small">Intel Core & AMD Ryzen processors for gaming, content creation, and office tasks.</p>
+                            <a href="#contact" class="btn btn-outline-primary btn-sm mt-auto">Check Price</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Graphics Cards">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="fw-bold">Graphics Cards (GPU)</h5>
+                            <p class="text-muted small">NVIDIA GeForce & AMD Radeon high-end graphics cards for 4K gaming and rendering.</p>
+                            <a href="#contact" class="btn btn-outline-primary btn-sm mt-auto">Check Price</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Peripherals">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="fw-bold">Mechanical Keyboards</h5>
+                            <p class="text-muted small">RGB backlit tactile mechanical keyboards and precision gaming mice setups.</p>
+                            <a href="#contact" class="btn btn-outline-primary btn-sm mt-auto">Check Price</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Storage SSDs">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="fw-bold">NVMe SSDs & RAM</h5>
+                            <p class="text-muted small">Lightning-fast Gen4 NVMe M.2 drives and high-frequency DDR5 memory kits.</p>
+                            <a href="#contact" class="btn btn-outline-primary btn-sm mt-auto">Check Price</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Testimonials</h6>
+                <h2 class="fw-bold">What Our Customers Say Across Tamil Nadu</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2 fs-5">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="text-muted">"Absolute lifesavers! My workstation motherboard shorted out right before a tight deadline. They fixed it at the chip level within a day. Best service in the region."</p>
+                            <h6 class="fw-bold mb-0">- Karthik Raja</h6>
+                            <small class="text-muted">Software Developer, Coimbatore</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2 fs-5">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="text-muted">"Bought all my custom gaming rig components here. Genuine bill, proper official warranty, and they even helped me tune the cable management cleanly."</p>
+                            <h6 class="fw-bold mb-0">- Arun Kumar</h6>
+                            <small class="text-muted">Gamer, Madurai</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2 fs-5">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="text-muted">"Very honest pricing and transparent diagnostics. They told me my laptop only needed a simple RAM upgrade instead of a full board change. Highly recommended!"</p>
+                            <h6 class="fw-bold mb-0">- Priya Sundar</h6>
+                            <small class="text-muted">Professor, Trichy</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h6 class="text-primary fw-bold text-uppercase">Get In Touch</h6>
+                    <h2 class="fw-bold mb-4">Visit Our Store or Reach Out</h2>
+                    <p class="text-muted mb-4">Have questions about specific hardware stock or need a quick device evaluation? Drop by our showroom or call our support lines.</p>
+                    
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex mb-3">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 me-3 fs-5"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Location</h5>
+                                <p class="text-muted mb-0">45, Netaji Road, Near Town Hall, Coimbatore, Tamil Nadu - 641001</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 me-3 fs-5"><i class="bi bi-telephone-fill"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Phone Number</h5>
+                                <p class="text-muted mb-0">+91 98422 12345 / +91 422 2345678</p>
+                            </div>
+                        </li>
+                        <li class="d-flex">
+                            <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 me-3 fs-5"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Email Support</h5>
+                                <p class="text-muted mb-0">support@srivelavancomputers.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg p-4 rounded-4 bg-white">
+                        <div class="card-body">
+                            <h4 class="fw-bold mb-3">Quick Inquiry Form</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Enter phone number">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Service or Product Required</label>
+                                    <select class="form-select">
+                                        <option selected>Choose option...</option>
+                                        <option value="1">Hardware Purchase (GPU/CPU/RAM)</option>
+                                        <option value="2">Laptop/Desktop Repair</option>
+                                        <option value="3">Custom Gaming PC Build</option>
+                                        <option value="4">Data Recovery</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" rows="3" placeholder="Describe your requirement..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Submit Inquiry</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-1 fw-bold text-primary"><i class="bi bi-cpu-fill me-2"></i>Sri Velavan Computers</p>
+            <p class="text-white-50 small mb-0">&copy; 2026 Sri Velavan Computers. All rights reserved. Proudly serving Tamil Nadu.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/919842212345" target="_blank" class="whatsapp-float shadow-lg d-flex align-items-center gap-2">
+        <i class="bi bi-whatsapp fs-5"></i> Chat on WhatsApp
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

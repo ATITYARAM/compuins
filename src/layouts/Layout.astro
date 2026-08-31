@@ -1,0 +1,68 @@
+---
+const { title } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | COMPUTER INSTRUMENTS</title>
+    <style is:global>
+      :root {
+        --primary: #2563eb;     /* Bright blue matching the stats ribbon */
+        --dark-bg: #1e293b;     /* Dark slate for navbar/footer */
+        --light-bg: #f8fafc;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+      }
+      
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: system-ui, sans-serif; background: var(--light-bg); color: var(--text-dark); }
+      a { text-decoration: none; color: inherit; }
+      
+      /* Navbar */
+      header { background: var(--dark-bg); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+      .logo { font-size: 1.25rem; font-weight: bold; color: #60a5fa; }
+      .nav-links { display: flex; gap: 1.5rem; }
+      .nav-links a:hover { color: #93c5fd; }
+      
+      /* Buttons */
+      .btn { padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+      .btn-primary { background: var(--primary); color: white; border: none; }
+      .btn-primary:hover { background: #1d4ed8; }
+      .btn-outline { background: transparent; color: white; border: 2px solid white; }
+      .btn-outline:hover { background: rgba(255,255,255,0.1); }
+      
+      /* Floating Cards */
+      .floating-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid var(--primary);
+      }
+      .floating-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      /* WhatsApp Float */
+      .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 10px 20px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">COMPUTER INSTRUMENTS</div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/services">Services</a>
+      </nav>
+      <button class="btn btn-primary">Call Now</button>
+    </header>
+    
+    <slot />
+
+    <a href="#" class="whatsapp-float">Chat on WhatsApp</a>
+  </body>
+</html>

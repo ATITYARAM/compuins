@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">RAMANATHAPURAM'S TRUSTED TECH DESTINATION</span>
+      <h1>COMPUTER INSTRUMENTS</h1>
+      <p>From robust hardware sales to comprehensive Annual Maintenance Contracts (AMC) and complex data processing for government sectors.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary">Explore Services</button>
+        <button class="btn btn-outline">Contact Us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Ribbon -->
+  <section class="stats-ribbon">
+    <div><h2>30+ Years</h2><p>Industry Excellence</p></div>
+    <div><h2>2000+</h2><p>Students Trained</p></div>
+    <div><h2>100%</h2><p>Genuine Hardware</p></div>
+    <div><h2>Expert</h2><p>Service Engineers</p></div>
+  </section>
+
+  <!-- Floating Cards Grid -->
+  <section class="content-section">
+    <div class="section-header">
+      <span class="sub-title">ABOUT COMPUTER INSTRUMENTS</span>
+      <h2>Powering Ramanathapuram's Digital Growth</h2>
+    </div>
+    <div class="grid">
+      <div class="floating-card">
+        <h3>Hardware Sales & Service</h3>
+        <p>Complete desktop, laptop, and accessory setups with dedicated on-site engineering support.</p>
+      </div>
+      <div class="floating-card">
+        <h3>Annual Maintenance (AMC)</h3>
+        <p>Trusted AMC contractor for major government bodies like CMFRI and the Joint Director of Agriculture.</p>
+      </div>
+      <div class="floating-card">
+        <h3>Data Digitization</h3>
+        <p>Expert data entry, household surveys, and image scanning for large-scale public initiatives.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hero {
+      /* Blue gradient overlay matching the reference image */
+      background: linear-gradient(to right, rgba(14, 61, 142, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover;
+      color: white;
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    .hero-content { max-width: 800px; margin: 0 auto; }
+    .badge { background: #3b82f6; padding: 5px 15px; border-radius: 4px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; }
+    .hero h1 { font-size: 3rem; margin: 1.5rem 0; font-weight: 800; line-height: 1.2; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; color: #e2e8f0; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
+
+    .stats-ribbon {
+      background: var(--primary);
+      color: white;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      padding: 2.5rem 5%;
+      text-align: center;
+    }
+    .stats-ribbon h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .stats-ribbon p { font-size: 0.9rem; font-weight: 600; opacity: 0.9; }
+
+    .content-section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
+    .section-header { margin-bottom: 3rem; }
+    .sub-title { color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+    .section-header h2 { font-size: 2.5rem; color: var(--dark-bg); margin-top: 0.5rem; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  </style>
+</Layout>

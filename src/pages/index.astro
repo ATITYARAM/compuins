@@ -512,7 +512,7 @@ import Layout from '../layouts/Layout.astro';
       <li><a href="#endorsements">Recognition</a></li>
       <li><a href="#infra">Infrastructure</a></li>
     </ul>
-    <a href="tel:9842298965" class="nav-cta">📞 98422 98965</a>
+    <a href="tel:9443170969" class="nav-cta">📞 94431 70969</a>
   </div>
 </nav>
 
@@ -903,7 +903,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="info-block">
           <h3>Phone</h3>
-          <p><a href="tel:9842298965">98422 98965</a></p>
+          <p><a href="tel:9443170969">94431 70969</a></p>
         </div>
         <div class="info-block">
           <h3>Previous Address</h3>
@@ -935,16 +935,44 @@ import Layout from '../layouts/Layout.astro';
   </p>
 </footer>
 
-<script>
-  const form = document.getElementById('enquiry-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const thanks = document.getElementById('form-thanks');
-      if (thanks) thanks.style.display = 'block';
-      (e.target as HTMLFormElement).reset();
-    });
-  }
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('enquiry-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // 1. Grab the values using the exact IDs in your HTML
+        const name = document.getElementById('name').value.trim() || 'N/A';
+        const org = document.getElementById('org').value.trim() || 'N/A';
+        const phone = document.getElementById('phone').value.trim() || 'N/A';
+        const service = document.getElementById('service').value || 'Not specified';
+        const message = document.getElementById('message').value.trim() || 'No message provided';
+
+        // 2. Configure the email
+        const recipient = 'contact@compuins.com';
+        const subject = encodeURIComponent('ENQUIRY');
+
+        const bodyText = 
+          `Hello Computer Instruments,\n\n` +
+          `Here are the details of my enquiry:\n\n` +
+          `• Name: ${name}\n` +
+          `• Organisation: ${org}\n` +
+          `• Phone Number: ${phone}\n` +
+          `• Service Required: ${service}\n\n` +
+          `• Message:\n${message}\n\n` +
+          `Regards,\n${name}`;
+
+        // 3. Trigger the mailto link
+        window.location.href = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+
+        // 4. Show the "Thank you" message and clear the form
+        const thanks = document.getElementById('form-thanks');
+        if (thanks) thanks.style.display = 'block';
+        e.target.reset();
+      });
+    }
+  });
 </script>
 </body>
 </html>

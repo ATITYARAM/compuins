@@ -2,80 +2,949 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Home">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <span class="badge">RAMANATHAPURAM'S TRUSTED TECH DESTINATION</span>
-      <h1>COMPUTER INSTRUMENTS</h1>
-      <p>From robust hardware sales to comprehensive Annual Maintenance Contracts (AMC) and complex data processing for government sectors.</p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary">Explore Services</button>
-        <button class="btn btn-outline">Contact Us</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Computer Instruments | Computer Informatics — Ramanathapuram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --maroon: #800000;
+    --maroon-dark: #5a0000;
+    --maroon-light: #a01010;
+    --gold: #D4AF37;
+    --gold-pale: #f0d97a;
+    --cream: #fdf8f0;
+    --ink: #1a1208;
+    --ink-mid: #3d2e14;
+    --ink-soft: #6b5740;
+    --rule: #d6c5a8;
+    --bg: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, .serif { font-family: 'Libre Baskerville', Georgia, serif; }
+  h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 700; }
+  h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; }
+
+  p { max-width: 68ch; }
+
+  /* UTILITIES */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+  .rule { border: none; border-top: 1px solid var(--rule); }
+  .gold-accent { color: var(--gold); }
+  .maroon-accent { color: var(--maroon); }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    border: 1px solid var(--maroon);
+    padding: 0.15rem 0.55rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--maroon);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.85rem 1.5rem;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .ci-badge {
+    width: 42px; height: 42px;
+    background: var(--maroon);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .ci-badge span {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .nav-brand { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-brand strong { font-family: 'Libre Baskerville', serif; font-size: 0.95rem; color: var(--ink); }
+  .nav-brand small { font-size: 0.7rem; color: var(--ink-soft); font-weight: 400; }
+  .nav-links {
+    display: flex; gap: 1.5rem; margin-left: auto;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500;
+    text-decoration: none;
+    color: var(--ink-mid);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--maroon); }
+  .nav-cta {
+    background: var(--maroon);
+    color: white;
+    padding: 0.5rem 1.1rem;
+    border-radius: 3px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--maroon-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding: 5rem 1.5rem 4rem;
+  }
+  .hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 28px; height: 2px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--maroon);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 1.25rem 0 2rem;
+    max-width: 52ch;
+  }
+  .hero-tamil {
+    font-size: 1.3rem;
+    color: var(--maroon);
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+  }
+  .hero-motto {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--maroon);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--maroon-dark); }
+  .btn-ghost {
+    color: var(--maroon);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--maroon);
+    padding-bottom: 1px;
+  }
+
+  /* hero stats panel */
+  .hero-stats {
+    background: var(--maroon);
+    border-radius: 6px;
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .stat-item { border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1.5rem; }
+  .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.2rem;
+  }
+
+  /* ── SECTIONS generic ── */
+  section { padding: 5rem 1.5rem; }
+  .section-header { margin-bottom: 3rem; }
+  .section-header h2 { margin-top: 0.4rem; }
+
+  /* ── LEGACY SECTION ── */
+  .legacy { background: var(--bg); }
+  .legacy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .legacy-feature {
+    padding: 2.5rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .legacy-feature:nth-child(even) { border-right: none; }
+  .legacy-feature:nth-last-child(-n+2) { border-bottom: none; }
+  .legacy-icon {
+    width: 44px; height: 44px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  .legacy-feature h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+  .legacy-feature p { font-size: 0.88rem; color: var(--ink-soft); max-width: 38ch; }
+  .year-pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.1rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--cream); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: #fff; }
+  .svc-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.85rem; color: var(--ink-soft); max-width: 34ch; }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--bg); }
+  .projects-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+  .project-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .project-row:last-child { border-bottom: none; }
+  .proj-meta {
+    background: var(--cream);
+    padding: 1.75rem 1.5rem;
+    border-right: 1px solid var(--rule);
+  }
+  .proj-meta .client-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-soft);
+    margin-bottom: 0.3rem;
+  }
+  .proj-meta .client-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .proj-meta .proj-year {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--maroon);
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+  .proj-body { padding: 1.75rem 2rem; }
+  .proj-body h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .proj-body p { font-size: 0.85rem; color: var(--ink-soft); max-width: 60ch; }
+
+  /* ── ENDORSEMENTS ── */
+  .endorsements { background: var(--maroon); padding: 5rem 1.5rem; }
+  .endorsements .section-header h2 { color: white; }
+  .endorsements .section-header .tag { color: var(--gold); border-color: var(--gold); }
+  .endorsements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .endorse-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+  .endorse-card blockquote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.25rem;
+    max-width: 52ch;
+  }
+  .endorse-official { display: flex; align-items: center; gap: 0.85rem; }
+  .official-badge {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    color: var(--maroon-dark);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .official-info .name { font-weight: 600; color: white; font-size: 0.88rem; }
+  .official-info .desg { font-size: 0.77rem; color: rgba(255,255,255,0.6); line-height: 1.3; }
+  .official-info .date { font-size: 0.73rem; color: var(--gold); margin-top: 0.1rem; }
+
+  /* ── INFRA ── */
+  .infra { background: var(--cream); }
+  .infra-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .infra-specs { display: flex; flex-direction: column; gap: 1rem; }
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-label { font-size: 0.85rem; color: var(--ink-soft); }
+  .spec-val { font-weight: 600; font-size: 0.9rem; color: var(--ink); text-align: right; }
+  .staff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .staff-cell {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1rem;
+  }
+  .staff-cell .num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.8rem;
+    color: var(--maroon);
+    line-height: 1;
+  }
+  .staff-cell .role { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
+  /* ── CONTACT / FOOTER ── */
+  .contact { background: var(--bg); }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-mid);
+    margin-bottom: 0.35rem;
+  }
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    width: 100%;
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    padding: 0.65rem 0.85rem;
+    border-radius: 3px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus { border-color: var(--maroon); }
+  .form-field textarea { height: 110px; resize: vertical; }
+  .btn-submit {
+    background: var(--maroon);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .btn-submit:hover { background: var(--maroon-dark); }
+
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+  .info-block h3 { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--ink-mid); }
+  .info-block p, .info-block address {
+    font-style: normal;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .info-block a { color: var(--maroon); text-decoration: none; }
+  .legal-ids { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .legal-id { font-size: 0.78rem; }
+  .legal-id span { font-weight: 600; color: var(--ink); }
+
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; }
+    .stat-item { flex: 1; min-width: 120px; border-bottom: none; padding-bottom: 0; border-right: 1px solid rgba(255,255,255,0.15); }
+    .stat-item:last-child { border-right: none; }
+    .legacy-grid { grid-template-columns: 1fr; }
+    .legacy-feature { border-right: none !important; }
+    .services-grid { grid-template-columns: 1fr; gap: 0; }
+    .project-row { grid-template-columns: 1fr; }
+    .proj-meta { border-right: none; border-bottom: 1px solid var(--rule); }
+    .endorsements-grid { grid-template-columns: 1fr; }
+    .infra-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .legal-ids { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-inner">
+    <div class="ci-badge"><span>CI</span></div>
+    <div class="nav-brand">
+      <strong>Computer Instruments</strong>
+      <small>Computer Informatics · Est. 1994</small>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#legacy">Legacy</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#endorsements">Recognition</a></li>
+      <li><a href="#infra">Infrastructure</a></li>
+    </ul>
+    <a href="tel:9842298965" class="nav-cta">📞 98422 98965</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Ramanathapuram's Pioneer IT Institution</div>
+      <h1>Computer<br><em>Instruments</em></h1>
+      <div class="hero-tamil">கம்ப்யூட்டர் இன்ஸ்ட்ரூமென்ட்ஸ்</div>
+      <p class="hero-motto">"Professionals makes Professionals"</p>
+      <p class="hero-sub">Hardware sales, enterprise AMC, government data projects, and computer education — serving Ramanathapuram district since 1994 with an unbroken record of institutional trust.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="#projects" class="btn-ghost">View Government Projects</a>
       </div>
     </div>
-  </section>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Years of uninterrupted service in Ramanathapuram</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2,000+</div>
+        <div class="stat-label">Rural students trained in the SSA programme alone</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1998</div>
+        <div class="stat-label">First internet connectivity in the entire district</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Stats Ribbon -->
-  <section class="stats-ribbon">
-    <div><h2>30+ Years</h2><p>Industry Excellence</p></div>
-    <div><h2>2000+</h2><p>Students Trained</p></div>
-    <div><h2>100%</h2><p>Genuine Hardware</p></div>
-    <div><h2>Expert</h2><p>Service Engineers</p></div>
-  </section>
-
-  <!-- Floating Cards Grid -->
-  <section class="content-section">
+<!-- ── LEGACY ── -->
+<section class="legacy" id="legacy">
+  <div class="container">
     <div class="section-header">
-      <span class="sub-title">ABOUT COMPUTER INSTRUMENTS</span>
-      <h2>Powering Ramanathapuram's Digital Growth</h2>
+      <span class="tag">Our Legacy</span>
+      <h2>Three decades of<br>district firsts</h2>
     </div>
-    <div class="grid">
-      <div class="floating-card">
-        <h3>Hardware Sales & Service</h3>
-        <p>Complete desktop, laptop, and accessory setups with dedicated on-site engineering support.</p>
+    <div class="legacy-grid">
+      <div class="legacy-feature">
+        <div class="year-pill">12 June 1994</div>
+        <div class="legacy-icon">🏛️</div>
+        <h3>Founded by a B.E. Engineer</h3>
+        <p>Thiru. D. Ramprakash, son of M. Danapalan, established Ramanathapuram's first institution offering both hardware and software training — when personal computing was still a novelty in the district.</p>
       </div>
-      <div class="floating-card">
-        <h3>Annual Maintenance (AMC)</h3>
-        <p>Trusted AMC contractor for major government bodies like CMFRI and the Joint Director of Agriculture.</p>
+      <div class="legacy-feature">
+        <div class="year-pill">1998</div>
+        <div class="legacy-icon">🌐</div>
+        <h3>First internet in the district</h3>
+        <p>Brought broadband connectivity to Ramanathapuram via a Chennai STD link, and conducted the region's first public internet awareness seminars, transforming access to digital knowledge.</p>
       </div>
-      <div class="floating-card">
-        <h3>Data Digitization</h3>
-        <p>Expert data entry, household surveys, and image scanning for large-scale public initiatives.</p>
+      <div class="legacy-feature">
+        <div class="year-pill">Ongoing</div>
+        <div class="legacy-icon">♿</div>
+        <h3>Empowering the physically challenged</h3>
+        <p>Ran a dedicated branch inside the Collectorate complex training differently-abled individuals as data entry operators and technicians — over 70% of BEL MNIC pilot operators were from this cohort.</p>
+      </div>
+      <div class="legacy-feature">
+        <div class="year-pill">1997</div>
+        <div class="legacy-icon">📋</div>
+        <h3>Proprietorship registered</h3>
+        <p>Formal registration of Computer Instruments on 1 December 1997 under Thiru. D. Ramprakash — establishing the commercial entity that still holds active AMC contracts with central and state government bodies.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <style>
-    .hero {
-      /* Blue gradient overlay matching the reference image */
-      background: linear-gradient(to right, rgba(14, 61, 142, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover;
-      color: white;
-      padding: 8rem 2rem;
-      text-align: center;
-    }
-    .hero-content { max-width: 800px; margin: 0 auto; }
-    .badge { background: #3b82f6; padding: 5px 15px; border-radius: 4px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; }
-    .hero h1 { font-size: 3rem; margin: 1.5rem 0; font-weight: 800; line-height: 1.2; }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; color: #e2e8f0; }
-    .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">What We Do</span>
+      <h2>Five service lines,<br>one trusted name</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-icon">🖥️</div>
+        <h3>Hardware Sales &amp; AMC</h3>
+        <p>Branded desktops, laptops, peripherals, and long-term on-site Annual Maintenance Contracts for government offices and enterprise clients across the district.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">📂</div>
+        <h3>Data Entry &amp; Digitization</h3>
+        <p>Large-scale census, identity, agricultural, and rural banking records digitization — from physical documents to structured, searchable digital archives.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">👷</div>
+        <h3>IT Manpower Outsourcing</h3>
+        <p>Deployment of trained data entry operators, hardware technicians, and project staff on temporary and contract basis for government and institutional projects.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">💻</div>
+        <h3>Custom Software Development</h3>
+        <p>Domain-specific solutions for retail, pharma distributors, and hospital management — including the full clinical system deployed at Pioneer Hospital.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">🎓</div>
+        <h3>Hardware &amp; Software Training</h3>
+        <p>Comprehensive curriculum covering computer hardware assembly, troubleshooting, office automation, and programming — producing work-ready technicians since 1994.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    .stats-ribbon {
-      background: var(--primary);
-      color: white;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      padding: 2.5rem 5%;
-      text-align: center;
-    }
-    .stats-ribbon h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-    .stats-ribbon p { font-size: 0.9rem; font-weight: 600; opacity: 0.9; }
+<!-- ── PROJECTS ── -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Government &amp; Enterprise Projects</span>
+      <h2>Projects that moved<br>the district forward</h2>
+    </div>
+    <div class="projects-list">
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Bharat Electronics Limited (BEL), Bangalore</div>
+          <div class="proj-year">2 Years</div>
+        </div>
+        <div class="proj-body">
+          <h3>Multipurpose National Identity Card (MNIC) Pilot</h3>
+          <p>Comprehensive biometric data collection, photography, fingerprinting, data entry, and correction for Tiruvadanai Taluk. Over 70% of operators deployed were differently-abled persons trained by our institution — a national pilot milestone.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Dept. of School Education / SSA</div>
+          <div class="proj-year">2003 – 2004</div>
+        </div>
+        <div class="proj-body">
+          <h3>Sarva Shiksha Abhiyan Computer Education</h3>
+          <p>Delivered hands-on computer education to more than 2,000 rural students of Classes 6, 7, and 8 across the Bogalur educational block — bringing digital literacy to underserved rural communities.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Election Commission / District Administration</div>
+          <div class="proj-year">Ramanathapuram &amp; Virudhunagar</div>
+        </div>
+        <div class="proj-body">
+          <h3>Election Photo Identity Card (EPIC) Outsourcing</h3>
+          <p>Supplied specialized data entry manpower for electoral roll preparation and voter ID card generation across two districts — a foundational contribution to Tamil Nadu's democratic infrastructure.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Indian Bank &amp; Pandiyan Grama Bank</div>
+          <div class="proj-year">Branch Migration</div>
+        </div>
+        <div class="proj-body">
+          <h3>Rural Banking Computerization</h3>
+          <p>Full-branch migration and historical data entry to convert manual rural banking operations at Indian Bank (Ramanathapuram and Paramakudi branches) and Pandiyan Grama Bank into fully computerized environments.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Pioneer Hospital (P) Ltd</div>
+          <div class="proj-year">Custom Software</div>
+        </div>
+        <div class="proj-body">
+          <h3>Hospital Automation System</h3>
+          <p>Designed and deployed a complete clinical management system handling departmental accounting and electronic patient records — one of the earliest hospital automation implementations in the district.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Joint Director of Agriculture / CMFRI Mandapam</div>
+          <div class="proj-year">1998 – Present</div>
+        </div>
+        <div class="proj-body">
+          <h3>Long-term Government AMC &amp; Hardware Supply</h3>
+          <p>Ongoing Annual Maintenance Contract for computers, printers, and UPS systems at the Joint Director of Agriculture since 1998, including 5 NeGPA data entry operators. CMFRI Mandapam Camp AMC since 2004. Hardware supplier for the District Collector's office.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="proj-meta">
+          <div class="client-label">Client</div>
+          <div class="client-name">Govt. of Tamil Nadu / PWD</div>
+          <div class="proj-year">Continuous</div>
+        </div>
+        <div class="proj-body">
+          <h3>SSA Household Survey &amp; Minor Irrigation Census</h3>
+          <p>Large-scale household survey data entry for the SSA programme, prioritizing deployment of economically backward and differently-abled operators. Parallel continuous data entry and validation for the Minor Irrigation Census from year one to date.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    .content-section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
-    .section-header { margin-bottom: 3rem; }
-    .sub-title { color: var(--primary); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
-    .section-header h2 { font-size: 2.5rem; color: var(--dark-bg); margin-top: 0.5rem; }
-    
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  </style>
-</Layout>
+<!-- ── ENDORSEMENTS ── -->
+<section class="endorsements" id="endorsements">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Official Recognition</span>
+      <h2>Letters of appreciation<br>from district leadership</h2>
+    </div>
+    <div class="endorsements-grid">
+      <div class="endorse-card">
+        <blockquote>
+          "Appreciated and placed on record the excellent individual work done by Thiru. D. Ramprakash, Computer Informatics, Ramanathapuram, for accomplishing the gigantic election task enthusiastically day and night."
+        </blockquote>
+        <div class="endorse-official">
+          <div class="official-badge">KS</div>
+          <div class="official-info">
+            <div class="name">Thiru. K. Sellamuthu, IAS</div>
+            <div class="desg">District Election Officer &amp; District Collector, Ramanathapuram</div>
+            <div class="date">12 May 2006 · Tamil Nadu Legislative Assembly Elections</div>
+          </div>
+        </div>
+      </div>
+      <div class="endorse-card">
+        <blockquote>
+          "Conveyed sincere gratitude and thanks for all technical and institutional support provided during his tenure as District Collector — a demonstration of the firm's unwavering commitment to public service."
+        </blockquote>
+        <div class="endorse-official">
+          <div class="official-badge">SV</div>
+          <div class="official-info">
+            <div class="name">Dr. S. Vijayakumar, IAS</div>
+            <div class="desg">Collector &amp; District Magistrate, Ramanathapuram District</div>
+            <div class="date">31 May 2004</div>
+          </div>
+        </div>
+      </div>
+      <div class="endorse-card">
+        <blockquote>
+          "Certified purchase of computer workstation and HP printer under government loan. The firm has rendered prompt, high-standard on-site maintenance service with proven hardware reliability."
+        </blockquote>
+        <div class="endorse-official">
+          <div class="official-badge">KM</div>
+          <div class="official-info">
+            <div class="name">K.P. Maghendhran, IPS</div>
+            <div class="desg">Deputy Inspector General of Police, Ramanathapuram Range</div>
+            <div class="date">9 March 1999</div>
+          </div>
+        </div>
+      </div>
+      <div class="endorse-card">
+        <blockquote>
+          "Certification of long-standing Annual Maintenance Contract excellence for central government scientific research infrastructure — a trusted partner to CMFRI's ongoing marine research mission since 2004."
+        </blockquote>
+        <div class="endorse-official">
+          <div class="official-badge">GT</div>
+          <div class="official-info">
+            <div class="name">Dr. G. Tamilmani</div>
+            <div class="desg">Senior Scientist &amp; Head-in-charge, CMFRI Mandapam Camp</div>
+            <div class="date">Long-term AMC Recognition</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INFRASTRUCTURE ── -->
+<section class="infra" id="infra">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Infrastructure</span>
+      <h2>A 600 sq ft institution<br>with district-scale reach</h2>
+    </div>
+    <div class="infra-inner">
+      <div>
+        <h3 style="margin-bottom:1.25rem;font-size:1rem;color:var(--ink-soft);font-weight:500;">Facility Specifications</h3>
+        <div class="infra-specs">
+          <div class="spec-row">
+            <span class="spec-label">Lab Area</span>
+            <span class="spec-val">600 sq ft</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Workstations</span>
+            <span class="spec-val">20 terminals</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Power Backup</span>
+            <span class="spec-val">5 UPS + 1 Servo Stabilizer</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Laser Printer</span>
+            <span class="spec-val">1 unit</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Inkjet Printers</span>
+            <span class="spec-val">2 units</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Photocopier</span>
+            <span class="spec-val">1 unit</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">GST Number</span>
+            <span class="spec-val">33AFBPR9058M1ZX</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">PAN Number</span>
+            <span class="spec-val">AFBPR9058M</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">TN VAT Number</span>
+            <span class="spec-val">33485441867</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1.25rem;font-size:1rem;color:var(--ink-soft);font-weight:500;">Team</h3>
+        <div class="staff-grid">
+          <div class="staff-cell">
+            <div class="num">5</div>
+            <div class="role">Tutors</div>
+          </div>
+          <div class="staff-cell">
+            <div class="num">2</div>
+            <div class="role">Service Engineers</div>
+          </div>
+          <div class="staff-cell">
+            <div class="num">3</div>
+            <div class="role">Data Entry Operators</div>
+          </div>
+          <div class="staff-cell">
+            <div class="num">1</div>
+            <div class="role">Accountant</div>
+          </div>
+          <div class="staff-cell" style="grid-column: span 2;">
+            <div class="num" style="color:var(--maroon);">12</div>
+            <div class="role">Total staff — small team, large mandate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact" style="border-top:1px solid var(--rule);">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Contact Us</span>
+      <h2>Reach out for AMC,<br>projects, or training</h2>
+    </div>
+    <div class="contact-inner">
+      <form class="contact-form" id="enquiry-form">
+        <div class="form-field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Thiru. / Dr. / Name" required />
+        </div>
+        <div class="form-field">
+          <label for="org">Organisation</label>
+          <input type="text" id="org" name="org" placeholder="Government dept, institution, company" />
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required />
+        </div>
+        <div class="form-field">
+          <label for="service">Service Required</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option>Hardware Sales &amp; AMC</option>
+            <option>Data Entry &amp; Digitization</option>
+            <option>IT Manpower Outsourcing</option>
+            <option>Custom Software Development</option>
+            <option>Computer Education / Training</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Describe your requirement briefly…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Enquiry</button>
+        <div id="form-thanks" style="display:none;font-size:0.88rem;color:var(--maroon);font-weight:500;">
+          Thank you — we will call you back shortly.
+        </div>
+      </form>
+      <div class="contact-info">
+        <div class="info-block">
+          <h3>Current Office</h3>
+          <address>
+            60, Pandikanmai Samy Aranmanai West Street<br>
+            Ramanathapuram, Tamil Nadu — 623 501
+          </address>
+        </div>
+        <div class="info-block">
+          <h3>Phone</h3>
+          <p><a href="tel:9842298965">98422 98965</a></p>
+        </div>
+        <div class="info-block">
+          <h3>Previous Address</h3>
+          <p style="font-size:0.82rem;color:var(--ink-soft);">
+            159, Salai Street, I Floor, Ramanathapuram — 623 501<br>
+            <span style="font-size:0.75rem;opacity:0.7;">(01 June 1998 to 01 February 2016)</span>
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>Legal Identifiers</h3>
+          <div class="legal-ids">
+            <div class="legal-id">GST<br><span>33AFBPR9058M1ZX</span></div>
+            <div class="legal-id">PAN<br><span>AFBPR9058M</span></div>
+            <div class="legal-id" style="grid-column:span 2;">TN VAT<br><span>33485441867</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>
+    <strong>Computer Instruments / Computer Informatics</strong><br>
+    Proprietor: Thiru. D. Ramprakash, B.E. · Est. 1994, Registered 1997<br>
+    60, Pandikanmai Samy Aranmanai West Street, Ramanathapuram – 623 501, Tamil Nadu<br>
+    GST 33AFBPR9058M1ZX · PAN AFBPR9058M
+  </p>
+</footer>
+
+<script>
+  const form = document.getElementById('enquiry-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const thanks = document.getElementById('form-thanks');
+      if (thanks) thanks.style.display = 'block';
+      (e.target as HTMLFormElement).reset();
+    });
+  }
+</script>
+</body>
+</html>

@@ -890,7 +890,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <button type="submit" class="btn-submit">Send Enquiry</button>
         <div id="form-thanks" style="display:none;font-size:0.88rem;color:var(--maroon);font-weight:500;">
-          Thank you — we will call you back shortly.
+          Thank you — opening your mail client...
         </div>
       </form>
       <div class="contact-info">
@@ -942,15 +942,15 @@ import Layout from '../layouts/Layout.astro';
       form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // 1. Grab the values using the exact IDs in your HTML
+        // 1. Grab form inputs
         const name = document.getElementById('name').value.trim() || 'N/A';
         const org = document.getElementById('org').value.trim() || 'N/A';
         const phone = document.getElementById('phone').value.trim() || 'N/A';
         const service = document.getElementById('service').value || 'Not specified';
         const message = document.getElementById('message').value.trim() || 'No message provided';
 
-        // 2. Configure the email
-        const recipient = 'contact@compuins.com';
+        // 2. Target email address requested
+        const recipient = 'enquiry@compuins.com';
         const subject = encodeURIComponent('ENQUIRY');
 
         const bodyText = 
@@ -963,10 +963,10 @@ import Layout from '../layouts/Layout.astro';
           `• Message:\n${message}\n\n` +
           `Regards,\n${name}`;
 
-        // 3. Trigger the mailto link
+        // 3. Trigger mailto link opening email client
         window.location.href = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
 
-        // 4. Show the "Thank you" message and clear the form
+        // 4. Show notification and clear form
         const thanks = document.getElementById('form-thanks');
         if (thanks) thanks.style.display = 'block';
         e.target.reset();

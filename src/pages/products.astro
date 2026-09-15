@@ -1,5 +1,8 @@
 ---
+import { getProducts } from '../lib/products';
+
 const base = import.meta.env.BASE_URL;
+const products = getProducts();
 const title = 'Products';
 ---
 
@@ -21,25 +24,53 @@ const title = 'Products';
         <p class="eyebrow">COMPUTER INSTRUMENTS</p>
         <h1>Products</h1>
         <p class="intro">
-          A dedicated product catalogue will be presented here from the
-          repository's <code>Products/</code> directory.
+          Product cards are generated directly from the ZIP files stored in the
+          repository's <code>Products/</code> folder.
         </p>
       </header>
 
       <section class="catalog" aria-labelledby="catalog-title">
         <div class="catalog-inner">
-          <p class="eyebrow">PRODUCT CATALOGUE</p>
-          <h2 id="catalog-title">Products</h2>
-          <p>
-            Product discovery is intentionally not implemented yet. The
-            catalogue source and loading rules will be added next, using the
-            root-level <code>Products/</code> folder as requested.
-          </p>
-          <div class="empty-state">
-            <span>01</span>
-            <strong>Catalogue ready</strong>
-            <small>Waiting for product structure and loading rules.</small>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PRODUCT CATALOGUE</p>
+              <h2 id="catalog-title">Our Products</h2>
+            </div>
+            <span class="count">{products.length.toString().padStart(2, '0')} products</span>
           </div>
+
+          {products.length > 0 ? (
+            <div class="product-grid">
+              {products.map((product, index) => (
+                <article class="product-card">
+                  <div class="thumbnail">
+                    {product.thumbnail ? (
+                      <img
+                        src={product.thumbnail}
+                        alt={`${product.title} thumbnail`}
+                        loading={index < 4 ? 'eager' : 'lazy'}
+                      />
+                    ) : (
+                      <div class="thumbnail-fallback" aria-label="Thumbnail not found">
+                        <span>CI</span>
+                        <small>Thumbnail unavailable</small>
+                      </div>
+                    )}
+                  </div>
+                  <div class="card-body">
+                    <span class="card-number">{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{product.title}</h3>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div class="empty-state">
+              <span>01</span>
+              <strong>No products yet</strong>
+              <small>Add a product <code>.zip</code> file to the root <code>Products/</code> folder. Each archive should contain an image named <code>thumbnail</code>, such as <code>thumbnail.jpg</code>, <code>thumbnail.jpeg</code>, or <code>thumbnail.png</code>.</small>
+            </div>
+          )}
         </div>
       </section>
     </main>
@@ -68,6 +99,7 @@ const title = 'Products';
     text-decoration: none;
     font-size: .9rem;
   }
+  .back:hover { text-decoration: underline; }
   .eyebrow {
     margin: 0 0 .75rem;
     color: #d4af37;
@@ -75,7 +107,7 @@ const title = 'Products';
     font-weight: 700;
     letter-spacing: .14em;
   }
-  h1, h2 {
+  h1, h2, h3 {
     margin: 0;
     font-family: Georgia, serif;
     line-height: 1.05;
@@ -83,7 +115,7 @@ const title = 'Products';
   h1 { font-size: clamp(3rem, 8vw, 6.5rem); }
   h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
   .intro {
-    max-width: 620px;
+    max-width: 700px;
     margin: 1.5rem 0 0;
     color: rgba(255,255,255,.78);
     font-size: 1.05rem;
@@ -91,14 +123,74 @@ const title = 'Products';
   }
   .catalog { padding: 5rem 1.25rem 7rem; }
   .catalog-inner {
-    max-width: 1080px;
+    max-width: 1200px;
     margin: 0 auto;
   }
-  .catalog h2 { margin-bottom: 1rem; }
-  .catalog p:not(.eyebrow) {
-    max-width: 650px;
-    color: #6b5740;
-    line-height: 1.75;
+  .section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .count {
+    color: #806b52;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .product-card {
+    overflow: hidden;
+    border: 1px solid #d6c5a8;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(65, 42, 16, .07);
+  }
+  .thumbnail {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #eee6da;
+  }
+  .thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .thumbnail-fallback {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    height: 100%;
+    gap: .5rem;
+    color: #800000;
+  }
+  .thumbnail-fallback span {
+    font: 700 2.5rem Georgia, serif;
+  }
+  .thumbnail-fallback small { color: #806b52; }
+  .card-body {
+    position: relative;
+    padding: 1.4rem 1.5rem 1.6rem;
+  }
+  .card-number {
+    display: block;
+    margin-bottom: .65rem;
+    color: #d4af37;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+  .card-body h3 {
+    overflow-wrap: anywhere;
+    color: #24180d;
+    font-size: 1.25rem;
   }
   code {
     padding: .15rem .35rem;
@@ -110,22 +202,32 @@ const title = 'Products';
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 1rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding: 1.5rem;
     border: 1px solid #d6c5a8;
     background: #fff;
   }
   .empty-state span {
-    grid-row: span 2;
+    grid-row: span 3;
     color: #d4af37;
     font: 700 1.4rem Georgia, serif;
   }
   .empty-state strong { font-size: 1rem; }
-  .empty-state small { color: #6b5740; margin-top: .25rem; }
+  .empty-state small {
+    max-width: 760px;
+    margin-top: .35rem;
+    color: #6b5740;
+    line-height: 1.7;
+  }
 
+  @media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (max-width: 640px) {
     .page-header { padding-bottom: 4rem; }
     .back { margin-bottom: 4rem; }
     .catalog { padding-top: 3.5rem; }
+    .section-heading { align-items: start; flex-direction: column; gap: .75rem; }
+    .product-grid { grid-template-columns: 1fr; }
   }
 </style>

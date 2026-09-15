@@ -1,0 +1,131 @@
+---
+const base = import.meta.env.BASE_URL;
+const title = 'Products';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | COMPUTER INSTRUMENTS</title>
+    <meta
+      name="description"
+      content="Products from Computer Instruments, Ramanathapuram."
+    />
+  </head>
+  <body>
+    <main class="products-page">
+      <header class="page-header">
+        <a class="back" href={base}>← Computer Instruments</a>
+        <p class="eyebrow">COMPUTER INSTRUMENTS</p>
+        <h1>Products</h1>
+        <p class="intro">
+          A dedicated product catalogue will be presented here from the
+          repository's <code>Products/</code> directory.
+        </p>
+      </header>
+
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-inner">
+          <p class="eyebrow">PRODUCT CATALOGUE</p>
+          <h2 id="catalog-title">Products</h2>
+          <p>
+            Product discovery is intentionally not implemented yet. The
+            catalogue source and loading rules will be added next, using the
+            root-level <code>Products/</code> folder as requested.
+          </p>
+          <div class="empty-state">
+            <span>01</span>
+            <strong>Catalogue ready</strong>
+            <small>Waiting for product structure and loading rules.</small>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(body) {
+    margin: 0;
+    color: #1a1208;
+    background: #fdf8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .products-page { min-height: 100vh; }
+  .page-header {
+    padding: 1.5rem clamp(1.25rem, 5vw, 5rem) 6rem;
+    background: #800000;
+    color: #fff;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 5rem;
+    color: #f0d97a;
+    text-decoration: none;
+    font-size: .9rem;
+  }
+  .eyebrow {
+    margin: 0 0 .75rem;
+    color: #d4af37;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+  }
+  h1, h2 {
+    margin: 0;
+    font-family: Georgia, serif;
+    line-height: 1.05;
+  }
+  h1 { font-size: clamp(3rem, 8vw, 6.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+  .intro {
+    max-width: 620px;
+    margin: 1.5rem 0 0;
+    color: rgba(255,255,255,.78);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .catalog { padding: 5rem 1.25rem 7rem; }
+  .catalog-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .catalog h2 { margin-bottom: 1rem; }
+  .catalog p:not(.eyebrow) {
+    max-width: 650px;
+    color: #6b5740;
+    line-height: 1.75;
+  }
+  code {
+    padding: .15rem .35rem;
+    border-radius: 3px;
+    background: rgba(128,0,0,.07);
+    color: #800000;
+  }
+  .empty-state {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border: 1px solid #d6c5a8;
+    background: #fff;
+  }
+  .empty-state span {
+    grid-row: span 2;
+    color: #d4af37;
+    font: 700 1.4rem Georgia, serif;
+  }
+  .empty-state strong { font-size: 1rem; }
+  .empty-state small { color: #6b5740; margin-top: .25rem; }
+
+  @media (max-width: 640px) {
+    .page-header { padding-bottom: 4rem; }
+    .back { margin-bottom: 4rem; }
+    .catalog { padding-top: 3.5rem; }
+  }
+</style>

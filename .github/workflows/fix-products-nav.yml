@@ -1,0 +1,38 @@
+name: Fix Products navigation
+
+on:
+  push:
+    branches: [astro]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fix homepage Products URL
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/pages/index.astro')
+          s = p.read_text()
+          s = s.replace('href="/compuins/products/"', 'href="/products/"')
+          p.write_text(s)
+          PY
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/fix-products-nav.yml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/index.astro .github/workflows/fix-products-nav.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "fix: use root Products URL on homepage"
+          git push

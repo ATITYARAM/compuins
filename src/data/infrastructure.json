@@ -1,0 +1,27 @@
+{
+  "tag": "Infrastructure",
+  "heading": "A 600 sq ft institution\nwith district-scale reach",
+  "facilitySubtitle": "Facility Specifications",
+  "specs": [
+    { "label": "Lab Area", "value": "600 sq ft" },
+    { "label": "Workstations", "value": "20 terminals" },
+    { "label": "Power Backup", "value": "5 UPS + 1 Servo Stabilizer" },
+    { "label": "Laser Printer", "value": "1 unit" },
+    { "label": "Inkjet Printers", "value": "2 units" },
+    { "label": "Photocopier", "value": "1 unit" },
+    { "label": "GST Number", "value": "33AFBPR9058M1ZX" },
+    { "label": "PAN Number", "value": "AFBPR9058M" },
+    { "label": "TN VAT Number", "value": "33485441867" }
+  ],
+  "teamSubtitle": "Team",
+  "team": [
+    { "count": "5", "role": "Tutors" },
+    { "count": "2", "role": "Service Engineers" },
+    { "count": "3", "role": "Data Entry Operators" },
+    { "count": "1", "role": "Accountant" }
+  ],
+  "totalStaff": {
+    "count": "12",
+    "role": "Total staff — small team, large mandate"
+  }
+}

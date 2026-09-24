@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import legacy from '../data/legacy.json';
 ---
 
 <Layout title="About Us">
@@ -9,22 +10,12 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="content-section">
     <div class="grid">
-      <div class="floating-card">
-        <h3>1994: The Pioneer Era</h3>
-        <p>Founded by D. Ramprakash as Ramanathapuram's first computer educational institution teaching both software and hardware.</p>
-      </div>
-      <div class="floating-card">
-        <h3>1998: Bringing the Internet</h3>
-        <p>First institution to establish internet connectivity via STD and conduct district-wide awareness seminars.</p>
-      </div>
-      <div class="floating-card">
-        <h3>2004: Sarva Shiksha Abhiyan</h3>
-        <p>Successfully imparted computer education to over 2,000 rural students across the Bogalur educational block.</p>
-      </div>
-      <div class="floating-card">
-        <h3>E-Governance Projects</h3>
-        <p>Executed MNIC pilot data entries, Election Photo Identity Card (EPIC) outsourcing, and inclusive employment for physically challenged operators.</p>
-      </div>
+      {legacy.items.map(item => (
+        <div class="floating-card">
+          <h3>{item.date}: {item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
     </div>
   </section>
 

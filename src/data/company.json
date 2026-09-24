@@ -1,0 +1,30 @@
+{
+  "name": "Computer Instruments",
+  "historicalName": "Computer Informatics",
+  "tamilName": "கம்ப்யூட்டர் இன்ஸ்ட்ரூமென்ட்ஸ்",
+  "foundedYear": 1994,
+  "registeredYear": 1997,
+  "proprietor": "Thiru. D. Ramprakash, B.E.",
+  "motto": "Professionals makes Professionals",
+  "phone": "9443170969",
+  "phoneDisplay": "94431 70969",
+  "alternatePhone": "9842298965",
+  "whatsapp": "919842298965",
+  "email": "enquiry@compuins.com",
+  "address": {
+    "line1": "60, Pandikanmai Samy Aranmanai West Street",
+    "city": "Ramanathapuram",
+    "state": "Tamil Nadu",
+    "pincode": "623 501",
+    "full": "60, Pandikanmai Samy Aranmanai West Street, Ramanathapuram – 623 501, Tamil Nadu"
+  },
+  "previousAddress": {
+    "full": "159, Salai Street, I Floor, Ramanathapuram — 623 501",
+    "duration": "(01 June 1998 to 01 February 2016)"
+  },
+  "legalIds": {
+    "gst": "33AFBPR9058M1ZX",
+    "pan": "AFBPR9058M",
+    "tnVat": "33485441867"
+  }
+}

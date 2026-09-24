@@ -1,0 +1,48 @@
+{
+  "tag": "Government & Enterprise Projects",
+  "heading": "Projects that moved\nthe district forward",
+  "items": [
+    {
+      "client": "Bharat Electronics Limited (BEL), Bangalore",
+      "duration": "2 Years",
+      "title": "Multipurpose National Identity Card (MNIC) Pilot",
+      "description": "Comprehensive biometric data collection, photography, fingerprinting, data entry, and correction for Tiruvadanai Taluk. Over 70% of operators deployed were differently-abled persons trained by our institution — a national pilot milestone."
+    },
+    {
+      "client": "Dept. of School Education / SSA",
+      "duration": "2003 – 2004",
+      "title": "Sarva Shiksha Abhiyan Computer Education",
+      "description": "Delivered hands-on computer education to more than 2,000 rural students of Classes 6, 7, and 8 across the Bogalur educational block — bringing digital literacy to underserved rural communities."
+    },
+    {
+      "client": "Election Commission / District Administration",
+      "duration": "Ramanathapuram & Virudhunagar",
+      "title": "Election Photo Identity Card (EPIC) Outsourcing",
+      "description": "Supplied specialized data entry manpower for electoral roll preparation and voter ID card generation across two districts — a foundational contribution to Tamil Nadu's democratic infrastructure."
+    },
+    {
+      "client": "Indian Bank & Pandiyan Grama Bank",
+      "duration": "Branch Migration",
+      "title": "Rural Banking Computerization",
+      "description": "Full-branch migration and historical data entry to convert manual rural banking operations at Indian Bank (Ramanathapuram and Paramakudi branches) and Pandiyan Grama Bank into fully computerized environments."
+    },
+    {
+      "client": "Pioneer Hospital (P) Ltd",
+      "duration": "Custom Software",
+      "title": "Hospital Automation System",
+      "description": "Designed and deployed a complete clinical management system handling departmental accounting and electronic patient records — one of the earliest hospital automation implementations in the district."
+    },
+    {
+      "client": "Joint Director of Agriculture / CMFRI Mandapam",
+      "duration": "1998 – Present",
+      "title": "Long-term Government AMC & Hardware Supply",
+      "description": "Ongoing Annual Maintenance Contract for computers, printers, and UPS systems at the Joint Director of Agriculture since 1998, including 5 NeGPA data entry operators. CMFRI Mandapam Camp AMC since 2004. Hardware supplier for the District Collector's office."
+    },
+    {
+      "client": "Govt. of Tamil Nadu / PWD",
+      "duration": "Continuous",
+      "title": "SSA Household Survey & Minor Irrigation Census",
+      "description": "Large-scale household survey data entry for the SSA programme, prioritizing deployment of economically backward and differently-abled operators. Parallel continuous data entry and validation for the Minor Irrigation Census from year one to date."
+    }
+  ]
+}

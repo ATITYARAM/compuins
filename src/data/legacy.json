@@ -1,0 +1,30 @@
+{
+  "tag": "Our Legacy",
+  "heading": "Three decades of\ndistrict firsts",
+  "items": [
+    {
+      "date": "12 June 1994",
+      "icon": "🏛️",
+      "title": "Founded by a B.E. Engineer",
+      "description": "Thiru. D. Ramprakash, son of M. Danapalan, established Ramanathapuram's first institution offering both hardware and software training — when personal computing was still a novelty in the district."
+    },
+    {
+      "date": "1998",
+      "icon": "🌐",
+      "title": "First internet in the district",
+      "description": "Brought broadband connectivity to Ramanathapuram via a Chennai STD link, and conducted the region's first public internet awareness seminars, transforming access to digital knowledge."
+    },
+    {
+      "date": "Ongoing",
+      "icon": "♿",
+      "title": "Empowering the physically challenged",
+      "description": "Ran a dedicated branch inside the Collectorate complex training differently-abled individuals as data entry operators and technicians — over 70% of BEL MNIC pilot operators were from this cohort."
+    },
+    {
+      "date": "1997",
+      "icon": "📋",
+      "title": "Proprietorship registered",
+      "description": "Formal registration of Computer Instruments on 1 December 1997 under Thiru. D. Ramprakash — establishing the commercial entity that still holds active AMC contracts with central and state government bodies."
+    }
+  ]
+}

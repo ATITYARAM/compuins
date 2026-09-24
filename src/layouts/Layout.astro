@@ -1,4 +1,6 @@
 ---
+import company from '../data/company.json';
+
 const { title } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
@@ -9,7 +11,7 @@ const base = import.meta.env.BASE_URL;
     <!-- Favicon links with cache-busting -->
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg?v=2`} />
     <link rel="alternate icon" href={`${base}favicon.svg?v=2`} />
-    <title>{title} | COMPUTER INSTRUMENTS</title>
+    <title>{title} | {company.name.toUpperCase()}</title>
     <style is:global>
       :root {
         --primary: #2563eb;
@@ -50,18 +52,18 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body>
     <header>
-      <div class="logo">COMPUTER INSTRUMENTS</div>
+      <div class="logo">{company.name.toUpperCase()}</div>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href={base}>Home</a>
         <a href={`${base}about`}>About Us</a>
         <a href={`${base}services`}>Services</a>
         <a href={`${base}products`}>Products</a>
       </nav>
-      <a class="btn btn-primary" href="tel:9842298965">Call Now</a>
+      <a class="btn btn-primary" href={`tel:${company.alternatePhone || company.phone}`}>Call Now</a>
     </header>
 
     <slot />
 
-    <a href="https://wa.me/919842298965" class="whatsapp-float" aria-label="Chat with Computer Instruments on WhatsApp">Chat on WhatsApp</a>
+    <a href={`https://wa.me/${company.whatsapp}`} class="whatsapp-float" aria-label={`Chat with ${company.name} on WhatsApp`}>Chat on WhatsApp</a>
   </body>
 </html>

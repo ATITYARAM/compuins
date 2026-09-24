@@ -1,0 +1,10 @@
+{
+  "links": [
+    { "label": "Legacy", "href": "#legacy" },
+    { "label": "Services", "href": "#services" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Recognition", "href": "#endorsements" },
+    { "label": "Infrastructure", "href": "#infra" },
+    { "label": "Products", "href": "/products/" }
+  ]
+}

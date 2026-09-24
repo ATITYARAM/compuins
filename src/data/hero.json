@@ -1,0 +1,30 @@
+{
+  "eyebrow": "Ramanathapuram's Pioneer IT Institution",
+  "titlePrefix": "Computer",
+  "titleHighlight": "Instruments",
+  "subtitle": "Hardware sales, enterprise AMC, government data projects, and computer education — serving Ramanathapuram district since 1994 with an unbroken record of institutional trust.",
+  "actions": {
+    "primary": {
+      "text": "Get in Touch",
+      "href": "#contact"
+    },
+    "secondary": {
+      "text": "View Government Projects",
+      "href": "#projects"
+    }
+  },
+  "stats": [
+    {
+      "number": "30+",
+      "label": "Years of uninterrupted service in Ramanathapuram"
+    },
+    {
+      "number": "2,000+",
+      "label": "Rural students trained in the SSA programme alone"
+    },
+    {
+      "number": "1998",
+      "label": "First internet connectivity in the entire district"
+    }
+  ]
+}

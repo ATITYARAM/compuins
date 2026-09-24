@@ -1,0 +1,31 @@
+{
+  "tag": "What We Do",
+  "heading": "Five service lines,\none trusted name",
+  "items": [
+    {
+      "icon": "🖥️",
+      "title": "Hardware Sales & AMC",
+      "description": "Branded desktops, laptops, peripherals, and long-term on-site Annual Maintenance Contracts for government offices and enterprise clients across the district."
+    },
+    {
+      "icon": "📂",
+      "title": "Data Entry & Digitization",
+      "description": "Large-scale census, identity, agricultural, and rural banking records digitization — from physical documents to structured, searchable digital archives."
+    },
+    {
+      "icon": "👷",
+      "title": "IT Manpower Outsourcing",
+      "description": "Deployment of trained data entry operators, hardware technicians, and project staff on temporary and contract basis for government and institutional projects."
+    },
+    {
+      "icon": "💻",
+      "title": "Custom Software Development",
+      "description": "Domain-specific solutions for retail, pharma distributors, and hospital management — including the full clinical system deployed at Pioneer Hospital."
+    },
+    {
+      "icon": "🎓",
+      "title": "Hardware & Software Training",
+      "description": "Comprehensive curriculum covering computer hardware assembly, troubleshooting, office automation, and programming — producing work-ready technicians since 1994."
+    }
+  ]
+}

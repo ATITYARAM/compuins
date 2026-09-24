@@ -1,5 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import company from '../data/company.json';
+import hero from '../data/hero.json';
+import legacy from '../data/legacy.json';
+import services from '../data/services.json';
+import projects from '../data/projects.json';
+import endorsements from '../data/endorsements.json';
+import infrastructure from '../data/infrastructure.json';
+import navigation from '../data/navigation.json';
 ---
 
 <!DOCTYPE html>
@@ -7,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Computer Instruments | Computer Informatics — Ramanathapuram</title>
+<title>{company.name} | {company.historicalName} — {company.address.city}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -162,94 +169,90 @@ import Layout from '../layouts/Layout.astro';
   <div class="nav-inner">
     <div class="ci-badge"><span>CI</span></div>
     <div class="nav-brand">
-      <strong>Computer Instruments</strong>
-      <small>Computer Informatics · Est. 1994</small>
+      <strong>{company.name}</strong>
+      <small>{company.historicalName} · Est. {company.foundedYear}</small>
     </div>
     <ul class="nav-links">
-      <li><a href="#legacy">Legacy</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#endorsements">Recognition</a></li>
-      <li><a href="#infra">Infrastructure</a></li>
-      <li><a href="/products/">Products</a></li>
+      {navigation.links.map(link => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
     </ul>
-    <a href="tel:9443170969" class="nav-cta">📞 94431 70969</a>
+    <a href={`tel:${company.phone}`} class="nav-cta">📞 {company.phoneDisplay}</a>
   </div>
 </nav>
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow">Ramanathapuram's Pioneer IT Institution</div>
-      <h1>Computer<br><em>Instruments</em></h1>
-      <div class="hero-tamil">கம்ப்யூட்டர் இன்ஸ்ட்ரூமென்ட்ஸ்</div>
-      <p class="hero-motto">"Professionals makes Professionals"</p>
-      <p class="hero-sub">Hardware sales, enterprise AMC, government data projects, and computer education — serving Ramanathapuram district since 1994 with an unbroken record of institutional trust.</p>
+      <div class="hero-eyebrow">{hero.eyebrow}</div>
+      <h1>{hero.titlePrefix}<br><em>{hero.titleHighlight}</em></h1>
+      <div class="hero-tamil">{company.tamilName}</div>
+      <p class="hero-motto">"{company.motto}"</p>
+      <p class="hero-sub">{hero.subtitle}</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Get in Touch</a>
-        <a href="#projects" class="btn-ghost">View Government Projects</a>
+        <a href={hero.actions.primary.href} class="btn-primary">{hero.actions.primary.text}</a>
+        <a href={hero.actions.secondary.href} class="btn-ghost">{hero.actions.secondary.text}</a>
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">Years of uninterrupted service in Ramanathapuram</div></div>
-      <div class="stat-item"><div class="stat-num">2,000+</div><div class="stat-label">Rural students trained in the SSA programme alone</div></div>
-      <div class="stat-item"><div class="stat-num">1998</div><div class="stat-label">First internet connectivity in the entire district</div></div>
+      {hero.stats.map(stat => (
+        <div class="stat-item"><div class="stat-num">{stat.number}</div><div class="stat-label">{stat.label}</div></div>
+      ))}
     </div>
   </div>
 </section>
 <section class="legacy" id="legacy">
   <div class="container">
-    <div class="section-header"><span class="tag">Our Legacy</span><h2>Three decades of<br>district firsts</h2></div>
+    <div class="section-header"><span class="tag">{legacy.tag}</span><h2>{legacy.heading.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}</h2></div>
     <div class="legacy-grid">
-      <div class="legacy-feature"><div class="year-pill">12 June 1994</div><div class="legacy-icon">🏛️</div><h3>Founded by a B.E. Engineer</h3><p>Thiru. D. Ramprakash, son of M. Danapalan, established Ramanathapuram's first institution offering both hardware and software training — when personal computing was still a novelty in the district.</p></div>
-      <div class="legacy-feature"><div class="year-pill">1998</div><div class="legacy-icon">🌐</div><h3>First internet in the district</h3><p>Brought broadband connectivity to Ramanathapuram via a Chennai STD link, and conducted the region's first public internet awareness seminars, transforming access to digital knowledge.</p></div>
-      <div class="legacy-feature"><div class="year-pill">Ongoing</div><div class="legacy-icon">♿</div><h3>Empowering the physically challenged</h3><p>Ran a dedicated branch inside the Collectorate complex training differently-abled individuals as data entry operators and technicians — over 70% of BEL MNIC pilot operators were from this cohort.</p></div>
-      <div class="legacy-feature"><div class="year-pill">1997</div><div class="legacy-icon">📋</div><h3>Proprietorship registered</h3><p>Formal registration of Computer Instruments on 1 December 1997 under Thiru. D. Ramprakash — establishing the commercial entity that still holds active AMC contracts with central and state government bodies.</p></div>
+      {legacy.items.map(item => (
+        <div class="legacy-feature"><div class="year-pill">{item.date}</div><div class="legacy-icon">{item.icon}</div><h3>{item.title}</h3><p>{item.description}</p></div>
+      ))}
     </div>
   </div>
 </section>
 <section class="services" id="services">
-  <div class="container"><div class="section-header"><span class="tag">What We Do</span><h2>Five service lines,<br>one trusted name</h2></div><div class="services-grid">
-    <div class="service-card"><div class="svc-icon">🖥️</div><h3>Hardware Sales &amp; AMC</h3><p>Branded desktops, laptops, peripherals, and long-term on-site Annual Maintenance Contracts for government offices and enterprise clients across the district.</p></div>
-    <div class="service-card"><div class="svc-icon">📂</div><h3>Data Entry &amp; Digitization</h3><p>Large-scale census, identity, agricultural, and rural banking records digitization — from physical documents to structured, searchable digital archives.</p></div>
-    <div class="service-card"><div class="svc-icon">👷</div><h3>IT Manpower Outsourcing</h3><p>Deployment of trained data entry operators, hardware technicians, and project staff on temporary and contract basis for government and institutional projects.</p></div>
-    <div class="service-card"><div class="svc-icon">💻</div><h3>Custom Software Development</h3><p>Domain-specific solutions for retail, pharma distributors, and hospital management — including the full clinical system deployed at Pioneer Hospital.</p></div>
-    <div class="service-card"><div class="svc-icon">🎓</div><h3>Hardware &amp; Software Training</h3><p>Comprehensive curriculum covering computer hardware assembly, troubleshooting, office automation, and programming — producing work-ready technicians since 1994.</p></div>
+  <div class="container"><div class="section-header"><span class="tag">{services.tag}</span><h2>{services.heading.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}</h2></div><div class="services-grid">
+    {services.items.map(item => (
+      <div class="service-card"><div class="svc-icon">{item.icon}</div><h3>{item.title}</h3><p>{item.description}</p></div>
+    ))}
   </div></div>
 </section>
 <section class="projects" id="projects">
-  <div class="container"><div class="section-header"><span class="tag">Government &amp; Enterprise Projects</span><h2>Projects that moved<br>the district forward</h2></div><div class="projects-list">
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Bharat Electronics Limited (BEL), Bangalore</div><div class="proj-year">2 Years</div></div><div class="proj-body"><h3>Multipurpose National Identity Card (MNIC) Pilot</h3><p>Comprehensive biometric data collection, photography, fingerprinting, data entry, and correction for Tiruvadanai Taluk. Over 70% of operators deployed were differently-abled persons trained by our institution — a national pilot milestone.</p></div></div>
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Dept. of School Education / SSA</div><div class="proj-year">2003 – 2004</div></div><div class="proj-body"><h3>Sarva Shiksha Abhiyan Computer Education</h3><p>Delivered hands-on computer education to more than 2,000 rural students of Classes 6, 7, and 8 across the Bogalur educational block — bringing digital literacy to underserved rural communities.</p></div></div>
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Election Commission / District Administration</div><div class="proj-year">Ramanathapuram &amp; Virudhunagar</div></div><div class="proj-body"><h3>Election Photo Identity Card (EPIC) Outsourcing</h3><p>Supplied specialized data entry manpower for electoral roll preparation and voter ID card generation across two districts — a foundational contribution to Tamil Nadu's democratic infrastructure.</p></div></div>
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Indian Bank &amp; Pandiyan Grama Bank</div><div class="proj-year">Branch Migration</div></div><div class="proj-body"><h3>Rural Banking Computerization</h3><p>Full-branch migration and historical data entry to convert manual rural banking operations at Indian Bank (Ramanathapuram and Paramakudi branches) and Pandiyan Grama Bank into fully computerized environments.</p></div></div>
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Pioneer Hospital (P) Ltd</div><div class="proj-year">Custom Software</div></div><div class="proj-body"><h3>Hospital Automation System</h3><p>Designed and deployed a complete clinical management system handling departmental accounting and electronic patient records — one of the earliest hospital automation implementations in the district.</p></div></div>
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Joint Director of Agriculture / CMFRI Mandapam</div><div class="proj-year">1998 – Present</div></div><div class="proj-body"><h3>Long-term Government AMC &amp; Hardware Supply</h3><p>Ongoing Annual Maintenance Contract for computers, printers, and UPS systems at the Joint Director of Agriculture since 1998, including 5 NeGPA data entry operators. CMFRI Mandapam Camp AMC since 2004. Hardware supplier for the District Collector's office.</p></div></div>
-    <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">Govt. of Tamil Nadu / PWD</div><div class="proj-year">Continuous</div></div><div class="proj-body"><h3>SSA Household Survey &amp; Minor Irrigation Census</h3><p>Large-scale household survey data entry for the SSA programme, prioritizing deployment of economically backward and differently-abled operators. Parallel continuous data entry and validation for the Minor Irrigation Census from year one to date.</p></div></div>
+  <div class="container"><div class="section-header"><span class="tag">{projects.tag}</span><h2>{projects.heading.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}</h2></div><div class="projects-list">
+    {projects.items.map(proj => (
+      <div class="project-row"><div class="proj-meta"><div class="client-label">Client</div><div class="client-name">{proj.client}</div><div class="proj-year">{proj.duration}</div></div><div class="proj-body"><h3>{proj.title}</h3><p>{proj.description}</p></div></div>
+    ))}
   </div></div>
 </section>
 <section class="endorsements" id="endorsements">
-  <div class="container"><div class="section-header"><span class="tag">Official Recognition</span><h2>Letters of appreciation<br>from district leadership</h2></div><div class="endorsements-grid">
-    <div class="endorse-card"><blockquote>"Appreciated and placed on record the excellent individual work done by Thiru. D. Ramprakash, Computer Informatics, Ramanathapuram, for accomplishing the gigantic election task enthusiastically day and night."</blockquote><div class="endorse-official"><div class="official-badge">KS</div><div class="official-info"><div class="name">Thiru. K. Sellamuthu, IAS</div><div class="desg">District Election Officer &amp; District Collector, Ramanathapuram</div><div class="date">12 May 2006 · Tamil Nadu Legislative Assembly Elections</div></div></div></div>
-    <div class="endorse-card"><blockquote>"Conveyed sincere gratitude and thanks for all technical and institutional support provided during his tenure as District Collector — a demonstration of the firm's unwavering commitment to public service."</blockquote><div class="endorse-official"><div class="official-badge">SV</div><div class="official-info"><div class="name">Dr. S. Vijayakumar, IAS</div><div class="desg">Collector &amp; District Magistrate, Ramanathapuram District</div><div class="date">31 May 2004</div></div></div></div>
-    <div class="endorse-card"><blockquote>"Certified purchase of computer workstation and HP printer under government loan. The firm has rendered prompt, high-standard on-site maintenance service with proven hardware reliability."</blockquote><div class="endorse-official"><div class="official-badge">KM</div><div class="official-info"><div class="name">K.P. Maghendhran, IPS</div><div class="desg">Deputy Inspector General of Police, Ramanathapuram Range</div><div class="date">9 March 1999</div></div></div></div>
-    <div class="endorse-card"><blockquote>"Certification of long-standing Annual Maintenance Contract excellence for central government scientific research infrastructure — a trusted partner to CMFRI's ongoing marine research mission since 2004."</blockquote><div class="endorse-official"><div class="official-badge">GT</div><div class="official-info"><div class="name">Dr. G. Tamilmani</div><div class="desg">Senior Scientist &amp; Head-in-charge, CMFRI Mandapam Camp</div><div class="date">Long-term AMC Recognition</div></div></div></div>
+  <div class="container"><div class="section-header"><span class="tag">{endorsements.tag}</span><h2>{endorsements.heading.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}</h2></div><div class="endorsements-grid">
+    {endorsements.items.map(endorse => (
+      <div class="endorse-card"><blockquote>"{endorse.quote}"</blockquote><div class="endorse-official"><div class="official-badge">{endorse.initials}</div><div class="official-info"><div class="name">{endorse.name}</div><div class="desg">{endorse.designation}</div><div class="date">{endorse.date}</div></div></div></div>
+    ))}
   </div></div>
 </section>
 <section class="infra" id="infra">
-  <div class="container"><div class="section-header"><span class="tag">Infrastructure</span><h2>A 600 sq ft institution<br>with district-scale reach</h2></div><div class="infra-inner">
-    <div><h3 style="margin-bottom:1.25rem;font-size:1rem;color:var(--ink-soft);font-weight:500;">Facility Specifications</h3><div class="infra-specs">
-      <div class="spec-row"><span class="spec-label">Lab Area</span><span class="spec-val">600 sq ft</span></div><div class="spec-row"><span class="spec-label">Workstations</span><span class="spec-val">20 terminals</span></div><div class="spec-row"><span class="spec-label">Power Backup</span><span class="spec-val">5 UPS + 1 Servo Stabilizer</span></div><div class="spec-row"><span class="spec-label">Laser Printer</span><span class="spec-val">1 unit</span></div><div class="spec-row"><span class="spec-label">Inkjet Printers</span><span class="spec-val">2 units</span></div><div class="spec-row"><span class="spec-label">Photocopier</span><span class="spec-val">1 unit</span></div><div class="spec-row"><span class="spec-label">GST Number</span><span class="spec-val">33AFBPR9058M1ZX</span></div><div class="spec-row"><span class="spec-label">PAN Number</span><span class="spec-val">AFBPR9058M</span></div><div class="spec-row"><span class="spec-label">TN VAT Number</span><span class="spec-val">33485441867</span></div>
+  <div class="container"><div class="section-header"><span class="tag">{infrastructure.tag}</span><h2>{infrastructure.heading.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}</h2></div><div class="infra-inner">
+    <div><h3 style="margin-bottom:1.25rem;font-size:1rem;color:var(--ink-soft);font-weight:500;">{infrastructure.facilitySubtitle}</h3><div class="infra-specs">
+      {infrastructure.specs.map(spec => (
+        <div class="spec-row"><span class="spec-label">{spec.label}</span><span class="spec-val">{spec.value}</span></div>
+      ))}
     </div></div>
-    <div><h3 style="margin-bottom:1.25rem;font-size:1rem;color:var(--ink-soft);font-weight:500;">Team</h3><div class="staff-grid"><div class="staff-cell"><div class="num">5</div><div class="role">Tutors</div></div><div class="staff-cell"><div class="num">2</div><div class="role">Service Engineers</div></div><div class="staff-cell"><div class="num">3</div><div class="role">Data Entry Operators</div></div><div class="staff-cell"><div class="num">1</div><div class="role">Accountant</div></div><div class="staff-cell" style="grid-column: span 2;"><div class="num" style="color:var(--maroon);">12</div><div class="role">Total staff — small team, large mandate</div></div></div></div>
+    <div><h3 style="margin-bottom:1.25rem;font-size:1rem;color:var(--ink-soft);font-weight:500;">{infrastructure.teamSubtitle}</h3><div class="staff-grid">
+      {infrastructure.team.map(cell => (
+        <div class="staff-cell"><div class="num">{cell.count}</div><div class="role">{cell.role}</div></div>
+      ))}
+      <div class="staff-cell" style="grid-column: span 2;"><div class="num" style="color:var(--maroon);">{infrastructure.totalStaff.count}</div><div class="role">{infrastructure.totalStaff.role}</div></div>
+    </div></div>
   </div></div>
 </section>
 <section class="contact" id="contact" style="border-top:1px solid var(--rule);">
   <div class="container"><div class="section-header"><span class="tag">Contact Us</span><h2>Reach out for AMC,<br>projects, or training</h2></div><div class="contact-inner">
     <form class="contact-form" id="enquiry-form"><div class="form-field"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Thiru. / Dr. / Name" required /></div><div class="form-field"><label for="org">Organisation</label><input type="text" id="org" name="org" placeholder="Government dept, institution, company" /></div><div class="form-field"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required /></div><div class="form-field"><label for="service">Service Required</label><select id="service" name="service"><option value="">Select a service</option><option>Hardware Sales &amp; AMC</option><option>Data Entry &amp; Digitization</option><option>IT Manpower Outsourcing</option><option>Custom Software Development</option><option>Computer Education / Training</option><option>Other</option></select></div><div class="form-field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Describe your requirement briefly…"></textarea></div><button type="submit" class="btn-submit">Send Enquiry</button><div id="form-thanks" style="display:none;font-size:0.88rem;color:var(--maroon);font-weight:500;">Thank you — opening your mail client...</div></form>
-    <div class="contact-info"><div class="info-block"><h3>Current Office</h3><address>60, Pandikanmai Samy Aranmanai West Street<br>Ramanathapuram, Tamil Nadu — 623 501</address></div><div class="info-block"><h3>Phone</h3><p><a href="tel:9443170969">94431 70969</a></p></div><div class="info-block"><h3>Previous Address</h3><p style="font-size:0.82rem;color:var(--ink-soft);">159, Salai Street, I Floor, Ramanathapuram — 623 501<br><span style="font-size:0.75rem;opacity:0.7;">(01 June 1998 to 01 February 2016)</span></p></div><div class="info-block"><h3>Legal Identifiers</h3><div class="legal-ids"><div class="legal-id">GST<br><span>33AFBPR9058M1ZX</span></div><div class="legal-id">PAN<br><span>AFBPR9058M</span></div><div class="legal-id" style="grid-column:span 2;">TN VAT<br><span>33485441867</span></div></div></div></div>
+    <div class="contact-info"><div class="info-block"><h3>Current Office</h3><address>{company.address.line1}<br>{company.address.city}, {company.address.state} — {company.address.pincode}</address></div><div class="info-block"><h3>Phone</h3><p><a href={`tel:${company.phone}`}>{company.phoneDisplay}</a></p></div><div class="info-block"><h3>Previous Address</h3><p style="font-size:0.82rem;color:var(--ink-soft);">{company.previousAddress.full}<br><span style="font-size:0.75rem;opacity:0.7;">{company.previousAddress.duration}</span></p></div><div class="info-block"><h3>Legal Identifiers</h3><div class="legal-ids"><div class="legal-id">GST<br><span>{company.legalIds.gst}</span></div><div class="legal-id">PAN<br><span>{company.legalIds.pan}</span></div><div class="legal-id" style="grid-column:span 2;">TN VAT<br><span>{company.legalIds.tnVat}</span></div></div></div></div>
   </div></div>
 </section>
-<footer><p><strong>Computer Instruments / Computer Informatics</strong><br>Proprietor: Thiru. D. Ramprakash, B.E. · Est. 1994, Registered 1997<br>60, Pandikanmai Samy Aranmanai West Street, Ramanathapuram – 623 501, Tamil Nadu<br>GST 33AFBPR9058M1ZX · PAN AFBPR9058M</p></footer>
+<footer><p><strong>{company.name} / {company.historicalName}</strong><br>Proprietor: {company.proprietor} · Est. {company.foundedYear}, Registered {company.registeredYear}<br>{company.address.full}<br>GST {company.legalIds.gst} · PAN {company.legalIds.pan}</p></footer>
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('enquiry-form');
